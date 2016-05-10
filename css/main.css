@@ -1,7 +1,9 @@
 .container {
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 0px;
+    left: 0px;
+    min-width: 100vw;
+    max-height: 100vh;
     opacity: 1;
     transition: opacity 1s;
 }
