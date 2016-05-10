@@ -1,19 +1,32 @@
 var video = (function() {;
-  var videoElem = document.getElementsByClassName('video')[0];
+  var videos = [
+    document.getElementsByClassName('video')[0],
+    document.getElementsByClassName('video')[1]
+  ];
+  var activeVideo;
+
+  function getInactiveVideo() {
+    return videos.find(function(video) {
+      return video !== activeVideo;
+    });
+  }
 
   return {
     show: function(source) {
-      videoElem.src = source;
+      activeVideo = getInactiveVideo();
 
-      removeClass(videoElem, 'hidden');
+      removeClass(activeVideo, 'hidden');
+      activeVideo.src = source;
 
-      videoElem.play();
+      activeVideo.play();
     },
 
     hide: function() {
-      addClass(videoElem, 'hidden');
+      videos.forEach(function(video) {
+        addClass(video, 'hidden');
 
-      videoElem.pause();
+        video.pause();
+      });
     }
   };
 })();

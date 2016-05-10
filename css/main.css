@@ -6,17 +6,31 @@
     transition: opacity 1s;
 }
 
+.hidden {
+    opacity: 0;
+}
+
 .video {
 }
 
 .image {
-    border: 1px solid red;
 }
 
-.krumelur {
-    border: 1px solid blue;
+.jump {
+    animation: jump 4s;
 }
 
-.hidden {
-    opacity: 0;
+.spin {
+    animation: spin 3s;
+}
+
+@keyframes jump {
+    0%   { top: 100px; }
+    75%  { top: 0px;   }
+    100% { top: 100px; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

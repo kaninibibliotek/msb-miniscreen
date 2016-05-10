@@ -1,15 +1,44 @@
 var image = (function() {
-  var imageElem = document.getElementsByClassName('image')[0];
+  var images = [
+    {
+      element: document.getElementsByClassName('image')[0],
+      animation: ''
+    },
+    {
+      element: document.getElementsByClassName('image')[1],
+      animation: ''
+    }
+  ];
+  var activeImage;
+
+  function getInactiveImage() {
+    return images.find(function(image) {
+      return image !== activeImage;
+    });
+  }
 
   return {
-    show: function(source) {
-      imageElem.src = source;
+    show: function(source, animation) {
+      activeImage = getInactiveImage();
 
-      removeClass(imageElem, 'hidden');
+      removeClass(activeImage.element, 'hidden');
+
+      if (animation) {
+        activeImage.animation = animation;
+        addClass(activeImage.element, animation);
+      }
+
+      activeImage.element.src = source;
     },
 
     hide: function() {
-      addClass(imageElem, 'hidden');
+      images.forEach(function(image) {
+        addClass(image.element, 'hidden');
+
+        if (image.animation) {
+          removeClass(image.element, image.animation);
+        }
+      });
     }
   }
 })();
