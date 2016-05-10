@@ -1,40 +1,45 @@
+var containers = {
+  video:    video,
+  image:    image,
+  krumelur: krumelur
+};
+
 function showRandom() {
-  var types = ['video', 'image', 'krumelur'];
+  var objects = [
+    {
+      type: 'video',
+      source: '../test/movie.mp4',
+      duration: 5
+    },
+    {
+      type: 'image',
+      source: '../test/image.jpg',
+      duration: 3
+    },
+    {
+      type: 'krumelur',
+      source: '../test/krumelur.jpg',
+      duration: 8
+    }
+  ];
 
-  show({
-    type:     types[Math.floor(Math.random() * types.length)],
-    duration: Math.max(1, Math.random() * 5)
-  });
-}
+  var toShow = objects[Math.floor(Math.random() * objects.length)];
 
-function show(showObj) {
-  switch (showObj.type) {
-    case 'video':
-      image.hide();
-      krumelur.hide();
-
-      video.show('../test/movie.mp4');
-
-      break;
-    case 'image':
-      video.hide();
-      krumelur.hide();
-
-      image.show('../test/image.jpg');
-
-      break;
-    case 'krumelur':
-      video.hide();
-      image.hide();
-
-      krumelur.show();
-
-      break;
-  }
+  show(toShow.type, toShow.source);
 
   setTimeout(function() {
     showRandom();
-  }, showObj.duration * 1000);
+  }, toShow.duration * 1000);
+}
+
+function show(type, source) {
+  for (var container in containers) {
+    if (container === type) {
+      containers[container].show(source);
+    } else {
+      containers[container].hide();
+    }
+  }
 }
 
 showRandom();
