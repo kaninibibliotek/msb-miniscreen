@@ -24,7 +24,8 @@ function showRandom() {
     {
       type: 'image',
       source: '../test/image2.jpg',
-      duration: 2
+      duration: 4,
+      animation: 'squeeze'
     },
     {
       type: 'image',
