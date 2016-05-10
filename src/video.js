@@ -18,6 +18,9 @@ var video = (function() {;
       removeClass(activeVideo, 'hidden');
       activeVideo.src = source;
 
+      // play() returns a promise which may be rejected
+      // and throw an exception due to a bug in chromium.
+      // See https://bugs.chromium.org/p/chromium/issues/detail?id=593273
       activeVideo.play();
     },
 
