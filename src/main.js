@@ -1,4 +1,4 @@
-function onReceivePlaylist(playlist) {
+function onReceivedPlaylist(playlist) {
   player.setPlaylist(playlist);
 }
 
@@ -35,5 +35,5 @@ setTimeout(function() {
       }
   ];
 
-  onReceivePlaylist(playlist);
+  onReceivedPlaylist(playlist);
 }, 100);
