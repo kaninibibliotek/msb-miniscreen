@@ -15,7 +15,7 @@ var video = (function() {;
     show: function(source) {
       activeVideo = getInactiveVideo();
 
-      removeClass(activeVideo, 'hidden');
+      utils.removeClass(activeVideo, 'hidden');
       activeVideo.src = source;
 
       // play() returns a promise which may be rejected
@@ -26,7 +26,7 @@ var video = (function() {;
 
     hide: function() {
       videos.forEach(function(video) {
-        addClass(video, 'hidden');
+        utils.addClass(video, 'hidden');
 
         video.pause();
       });

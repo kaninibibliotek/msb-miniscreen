@@ -21,11 +21,11 @@ var image = (function() {
     show: function(source, animation) {
       activeImage = getInactiveImage();
 
-      removeClass(activeImage.element, 'hidden');
+      utils.removeClass(activeImage.element, 'hidden');
 
       if (animation) {
         activeImage.animation = animation;
-        addClass(activeImage.element, animation);
+        utils.addClass(activeImage.element, animation);
       }
 
       activeImage.element.src = source;
@@ -33,10 +33,10 @@ var image = (function() {
 
     hide: function() {
       images.forEach(function(image) {
-        addClass(image.element, 'hidden');
+        utils.addClass(image.element, 'hidden');
 
         if (image.animation) {
-          removeClass(image.element, image.animation);
+          utils.removeClass(image.element, image.animation);
         }
       });
     }
