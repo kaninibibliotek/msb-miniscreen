@@ -36,12 +36,15 @@
 
 .jump {
     animation: jump 4s infinite;
+    -webkit-animation: jump 4s infinite;
 }
 
 .spin {
     animation: spin 3s infinite;
+    -webkit-animation: spin 3s infinite;
 }
 
 .squeeze {
     animation: squeeze 4s infinite;
+    -webkit-animation: squeeze 4s infinite;
 }
