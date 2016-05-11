@@ -7,29 +7,29 @@ setTimeout(function() {
   var playlist = [
     {
       type: 'video',
-      source: '../test/movie.mp4',
+      source: 'test/movie.mp4',
       duration: 2
     },
     {
       type: 'video',
-      source: '../test/movie2.mov',
+      source: 'test/movie2.mov',
       duration: 2
     },
     {
       type: 'image',
-      source: '../test/image.jpg',
+      source: 'test/image.jpg',
       duration: 3,
       animation: 'spin'
     },
     {
       type: 'image',
-      source: '../test/image2.jpg',
+      source: 'test/image2.jpg',
       duration: 4,
       animation: 'squeeze'
     },
     {
       type: 'image',
-      source: '../test/krumelur.jpg',
+      source: 'test/krumelur.jpg',
       duration: 4,
       animation: 'jump'
     }
