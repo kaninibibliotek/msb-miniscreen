@@ -16,7 +16,23 @@ var video = (function() {;
       activeVideo = getInactiveVideo();
 
       utils.removeClass(activeVideo, 'hidden');
-      activeVideo.src = source;
+
+      // TODO cache?
+      var sourceElem = activeVideo.getElementsByTagName('source')[0];
+      var ext = source.substring(source.lastIndexOf('.'));
+
+      switch (ext) {
+        case '.mp4':
+          sourceElem.type = 'video/mp4';
+          break;
+        case '.mov':
+          sourceElem.type = 'video/quicktime';
+          break;
+      }
+
+      sourceElem.src = source;
+
+      activeVideo.load();
 
       // play() returns a promise which may be rejected
       // and throw an exception due to a bug in chromium.
