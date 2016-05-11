@@ -16,9 +16,7 @@ var player = (function() {
       index = 0;
     }
 
-    setTimeout(function() {
-      next();
-    }, toShow.duration * 1000);
+    setTimeout(next, toShow.duration * 1000);
   }
 
   function show(showObject) {
