@@ -3,6 +3,7 @@ Player for MSB mini screens
 
 Development:
 ```sh
-$ python -m SimpleHTTPServer 3000
+$ npm install
+$ node server.js
 $ open http://localhost:3000
 ```
