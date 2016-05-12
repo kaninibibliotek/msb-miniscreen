@@ -1,7 +1,15 @@
 var video = (function() {;
+  var videosElem = document.getElementsByClassName('videos')[0];
+
   var videos = [
-    document.getElementsByClassName('video')[0],
-    document.getElementsByClassName('video')[1]
+    {
+      container: videosElem.getElementsByClassName('container')[0],
+      element:   videosElem.getElementsByClassName('video')[0]
+    },
+    {
+      container: videosElem.getElementsByClassName('container')[1],
+      element:   videosElem.getElementsByClassName('video')[1]
+    },
   ];
   var activeVideo;
 
@@ -15,10 +23,10 @@ var video = (function() {;
     show: function(source) {
       activeVideo = getInactiveVideo();
 
-      utils.removeClass(activeVideo, 'hidden');
+      utils.removeClass(activeVideo.container, 'hidden');
 
       // TODO cache?
-      var sourceElem = activeVideo.getElementsByTagName('source')[0];
+      var sourceElem = activeVideo.element.getElementsByTagName('source')[0];
       var ext = source.substring(source.lastIndexOf('.'));
 
       switch (ext) {
@@ -32,19 +40,19 @@ var video = (function() {;
 
       sourceElem.src = source;
 
-      activeVideo.load();
+      activeVideo.element.load();
 
       // play() returns a promise which may be rejected
       // and throw an exception due to a bug in chromium.
       // See https://bugs.chromium.org/p/chromium/issues/detail?id=593273
-      activeVideo.play();
+      activeVideo.element.play();
     },
 
     hide: function() {
       videos.forEach(function(video) {
-        utils.addClass(video, 'hidden');
+        utils.addClass(video.container, 'hidden');
 
-        video.pause();
+        video.element.pause();
       });
     }
   };

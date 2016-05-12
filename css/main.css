@@ -1,15 +1,24 @@
 body {
     overflow: hidden;
+    width: 100vw;
+    height: 100vh;
 }
 
 .container {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 100vw;
-    max-height: 100vh;
+    width: 100%;
+    height: 100%;
     opacity: 1;
     transition: opacity 1s;
+}
+
+.video, .image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
 }
 
 .hidden {

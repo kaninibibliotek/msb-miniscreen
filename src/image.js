@@ -1,13 +1,17 @@
 var image = (function() {
+  var imagesElem = document.getElementsByClassName('images')[0];
+
   var images = [
     {
-      element: document.getElementsByClassName('image')[0],
+      container: imagesElem.getElementsByClassName('container')[0],
+      element:   imagesElem.getElementsByClassName('image')[0],
       animation: ''
     },
     {
-      element: document.getElementsByClassName('image')[1],
+      container: imagesElem.getElementsByClassName('container')[1],
+      element:   imagesElem.getElementsByClassName('image')[1],
       animation: ''
-    }
+    },
   ];
   var activeImage;
 
@@ -21,7 +25,7 @@ var image = (function() {
     show: function(source, animation) {
       activeImage = getInactiveImage();
 
-      utils.removeClass(activeImage.element, 'hidden');
+      utils.removeClass(activeImage.container, 'hidden');
 
       if (animation) {
         activeImage.animation = animation;
@@ -33,7 +37,7 @@ var image = (function() {
 
     hide: function() {
       images.forEach(function(image) {
-        utils.addClass(image.element, 'hidden');
+        utils.addClass(image.container, 'hidden');
 
         if (image.animation) {
           utils.removeClass(image.element, image.animation);
