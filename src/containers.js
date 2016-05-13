@@ -39,7 +39,9 @@ var containers = (function() {
     },
 
     show: function(index) {
-      mediaContainers[index].show();
+      if (mediaContainers[index]) {
+        mediaContainers[index].show();
+      }
     },
 
     hide: function() {
@@ -53,7 +55,7 @@ var containers = (function() {
         containersElem.removeChild(containersElem.firstChild);
       }
 
-      mediaContainers = {};
+      mediaContainers = [];
     }
   };
 })();

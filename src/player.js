@@ -29,6 +29,8 @@ var player = (function() {
 
       utils.shuffle(queue);
 
+      containers.clear();
+
       containers.setup(playlist);
 
       next();
