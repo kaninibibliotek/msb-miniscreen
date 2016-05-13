@@ -1,37 +1,35 @@
 var player = (function() {
-  var containers = {
-    video: video,
-    image: image
-  };
-  var playlist = [];
-  var index    = 0;
+  var queue      = [];
+  var queueIndex = 0;
 
   function next() {
-    var toShow = playlist[index];
-    show(toShow);
+    var toShow = queue[queueIndex];
 
-    if (++index >= playlist.length) {
-      utils.shuffle(playlist);
+    containers.hide();
 
-      index = 0;
+    containers.show(toShow.index);
+
+    if (++queueIndex >= queue.length) {
+      utils.shuffle(queue);
+
+      queueIndex = 0;
     }
 
     setTimeout(next, toShow.duration * 1000);
   }
 
-  function show(showObject) {
-    for (var container in containers) {
-      containers[container].hide();
-    }
-
-    containers[showObject.type].show(showObject.source, showObject.animation);
-  }
-
   return {
-    setPlaylist: function(newPlaylist) {
-      playlist = newPlaylist;
+    setPlaylist: function(playlist) {
+      for (var i = 0; i < playlist.length; i++) {
+        queue.push({
+          index:    i,
+          duration: playlist[i].duration
+        });
+      }
 
-      utils.shuffle(playlist);
+      utils.shuffle(queue);
+
+      containers.setup(playlist);
 
       next();
     }
