@@ -45,19 +45,21 @@ body {
     position: relative;
     top: 100px;
     left: 0px;
+    animation-iteration-count: infinite !important;
+    -webkit-animation-iteration-count: infinite !important;
 }
 
 .jump {
-    animation: jump 4s infinite;
-    -webkit-animation: jump 4s infinite;
+    animation: jump 4s 1;
+    -webkit-animation: jump 4s 1;
 }
 
 .spin {
-    animation: spin 3s infinite;
-    -webkit-animation: spin 3s infinite;
+    animation: spin 3s 1;
+    -webkit-animation: spin 3s 1;
 }
 
 .squeeze {
-    animation: squeeze 4s infinite;
-    -webkit-animation: squeeze 4s infinite;
+    animation: squeeze 4s 1;
+    -webkit-animation: squeeze 4s 1;
 }
