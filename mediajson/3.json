@@ -1,0 +1,6 @@
+{
+    "type": "image",
+    "source": "test/image.jpg",
+    "duration": 3,
+    "animation": "spin"
+}
