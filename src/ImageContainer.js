@@ -13,6 +13,9 @@ ImageContainer.prototype.show = function() {
   utils.removeClass(this.container, 'hidden');
 
   if (this.animation) {
+    // Trigger reflow, needed in case the same image is showed twice in a row
+    this.image.height;
+
     utils.addClass(this.image, this.animation);
   }
 };
