@@ -8,6 +8,11 @@ $ npm install
 
 ### Development
 ```sh
-$ node server.js
+$ npm start
 $ open http://localhost:3000
+```
+
+### Deploy
+```sh
+$ npm run deploy
 ```
