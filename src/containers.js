@@ -26,6 +26,12 @@ var containers = (function() {
 
             mediaContainer = new ImageContainer(containerElem, mediaElem);
             break;
+          case 'krumelur':
+            mediaElem = document.createElement('img');
+            mediaElem.className = 'image';
+
+            mediaContainer = new KrumelurContainer(containerElem, mediaElem);
+            break;
         }
 
         containerElem.appendChild(mediaElem);
