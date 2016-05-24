@@ -49,17 +49,3 @@ body {
     -webkit-animation-iteration-count: infinite !important;
 }
 
-.jump {
-    animation: jump 4s 1;
-    -webkit-animation: jump 4s 1;
-}
-
-.spin {
-    animation: spin 3s 1;
-    -webkit-animation: spin 3s 1;
-}
-
-.squeeze {
-    animation: squeeze 4s 1;
-    -webkit-animation: squeeze 4s 1;
-}
