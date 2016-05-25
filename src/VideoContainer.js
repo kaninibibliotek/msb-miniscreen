@@ -1,9 +1,6 @@
 function VideoContainer(containerElem, videoElem) {
   this.container = containerElem;
   this.video     = videoElem;
-
-  this.sourceElem = document.createElement('source');
-  this.video.appendChild(this.sourceElem);
 }
 
 VideoContainer.prototype.load = function(source) {;
@@ -13,14 +10,14 @@ VideoContainer.prototype.load = function(source) {;
 
   switch (ext) {
     case '.mp4':
-      this.sourceElem.type = 'video/mp4';
+      this.video.type = 'video/mp4';
       break;
     case '.mov':
-      this.sourceElem.type = 'video/quicktime';
+      this.video.type = 'video/quicktime';
       break;
   }
 
-  this.sourceElem.src = source;
+  this.video.src = source;
 
   this.video.load();
 };
