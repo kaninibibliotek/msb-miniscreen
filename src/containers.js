@@ -1,67 +1,70 @@
 var containers = (function() {
-  var containersElem  = document.getElementsByClassName('containers')[0];
-  var mediaContainers = [];
+  var mediaContainers = [
+    new VideoContainer(
+      document.getElementsByClassName('container')[0],
+      document.getElementsByClassName('video')[0]
+    ),
+
+    new VideoContainer(
+      document.getElementsByClassName('container')[1],
+      document.getElementsByClassName('video')[1]
+    ),
+
+    new ImageContainer(
+      document.getElementsByClassName('container')[2],
+      document.getElementsByClassName('image')[0]
+    ),
+
+    new ImageContainer(
+      document.getElementsByClassName('container')[3],
+      document.getElementsByClassName('image')[1]
+    )
+  ];
+
+  function switchNextVideo() {
+    nextVideo = mediaContainers.find(function(container) {
+      return container instanceof VideoContainer && container !== nextVideo;
+    });
+  }
+
+  function switchNextImage() {
+    nextImage = mediaContainers.find(function(container) {
+      return container instanceof ImageContainer && container !== nextImage;
+    });
+  }
+
+  var nextVideo;
+  var nextImage;
 
   return {
-    setup: function(mediaObjects) {
-      for (var i = 0; i < mediaObjects.length; i++) {
-        var mediaObject = mediaObjects[i];
+    show: function(mediaObject) {
+      var next = mediaObject.type === 'video' ? nextVideo : nextImage;
 
-        var containerElem = document.createElement('div');
-        containerElem.className = 'container';
-
-        var mediaElem;
-        var mediaContainer;
-
-        switch (mediaObject.type) {
-          case 'video':
-            mediaElem = document.createElement('video');
-            mediaElem.className = 'video';
-
-            mediaContainer = new VideoContainer(containerElem, mediaElem);
-            break;
-          case 'image':
-            mediaElem = document.createElement('img');
-            mediaElem.className = 'image';
-
-            mediaContainer = new ImageContainer(containerElem, mediaElem);
-            break;
-          case 'krumelur':
-            mediaElem = document.createElement('img');
-            mediaElem.className = 'image';
-
-            mediaContainer = new KrumelurContainer(containerElem, mediaElem);
-            break;
-        }
-
-        containerElem.appendChild(mediaElem);
-
-        containersElem.appendChild(containerElem);
-
-        mediaContainer.load(mediaObject.source, mediaObject.animation);
-
-        mediaContainers.push(mediaContainer);
-      }
-    },
-
-    show: function(index) {
-      if (mediaContainers[index]) {
-        mediaContainers[index].show();
-      }
-    },
-
-    hide: function() {
       for (var i = 0; i < mediaContainers.length; i++) {
-        mediaContainers[i].hide();
+        if (mediaContainers[i] === next) {
+          mediaContainers[i].show();
+        } else {
+          mediaContainers[i].hide();
+        }
       }
     },
 
-    clear: function() {
-      while (containersElem.firstChild) {
-        containersElem.removeChild(containersElem.firstChild);
-      }
+    load: function(mediaObject) {
+      switch (mediaObject.type) {
+        case 'video':
+          switchNextVideo();
 
-      mediaContainers = [];
-    }
+          nextVideo.load(mediaObject.source);
+
+          break;
+        case 'image':
+        case 'krumelur':
+          switchNextImage();
+
+          nextImage.load(mediaObject.source, mediaObject.animation);
+
+          break;
+      }
+    },
   };
 })();

@@ -7,6 +7,8 @@ function VideoContainer(containerElem, videoElem) {
 }
 
 VideoContainer.prototype.load = function(source) {;
+  console.log("loading", source);
+
   var ext = source.substring(source.lastIndexOf('.'));
 
   switch (ext) {

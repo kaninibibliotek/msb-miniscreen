@@ -3,11 +3,21 @@ var player = (function() {
   var queueIndex = 0;
 
   function next() {
+    var nextIndex = (queueIndex + 1) % queue.length;
+
     var toShow = queue[queueIndex];
 
-    containers.hide();
+    containers.show(toShow);
 
-    containers.show(toShow.index);
+    if (queue[nextIndex].type !== 'video') {
+      // If we are going to load an image, wait for the transition to end
+      // so it doesn't change during the transition.
+      setTimeout(function() {
+        containers.load(queue[nextIndex]);
+      }, 1000);
+    } else {
+      containers.load(queue[nextIndex]);
+    }
 
     if (++queueIndex >= queue.length) {
       utils.shuffle(queue);
@@ -20,18 +30,11 @@ var player = (function() {
 
   return {
     setPlaylist: function(playlist) {
-      for (var i = 0; i < playlist.length; i++) {
-        queue.push({
-          index:    i,
-          duration: playlist[i].duration
-        });
-      }
+      queue = playlist;
 
       utils.shuffle(queue);
 
-      containers.clear();
-
-      containers.setup(playlist);
+      containers.load(queue[0]);
 
       next();
     }
