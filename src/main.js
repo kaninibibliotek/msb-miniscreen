@@ -14,4 +14,4 @@ request.onreadystatechange = function() {
   }
 };
 
-request.open('GET', '/miniscreen?id=' + config.id);
+request.open('GET', constants.URL + 'grottan');

@@ -23,8 +23,8 @@ var app = express();
 
 app.use(express.static(__dirname));
 
-app.get('/miniscreen', function(req, res) {
-  console.log("GET miniscreen", req.query.id);
+app.get('/miniscreen/:id', function(req, res) {
+  console.log("GET miniscreen", req.params.id);
 
   res.send(media);
 });
