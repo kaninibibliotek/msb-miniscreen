@@ -54,14 +54,14 @@ var containers = (function() {
         case 'video':
           switchNextVideo();
 
-          nextVideo.load(mediaObject.source);
+          nextVideo.load(mediaObject.url);
 
           break;
         case 'image':
         case 'krumelur':
           switchNextImage();
 
-          nextImage.load(mediaObject.source, mediaObject.animation);
+          nextImage.load(mediaObject.url, mediaObject.animation);
 
           break;
       }

@@ -1,3 +1,3 @@
 var constants = {
-  URL: '/miniscreen/'
+  URL: '/api/miniscreen/'
 };

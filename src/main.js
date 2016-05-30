@@ -1,4 +1,5 @@
 function onReceivedPlaylist(playlist) {
+  console.log("received", playlist);
   player.setPlaylist(playlist);
 }
 
@@ -14,4 +15,4 @@ request.onreadystatechange = function() {
   }
 };
 
-request.open('GET', constants.URL + 'grottan');
+request.open('GET', constants.URL + 'blixt');
