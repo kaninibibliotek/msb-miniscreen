@@ -5,9 +5,7 @@ var player = (function() {
   function next() {
     var nextIndex = (queueIndex + 1) % queue.length;
 
-    var toShow = queue[queueIndex];
-
-    containers.show(toShow);
+    containers.show(queue[queueIndex]);
 
     if (queue[nextIndex].type !== 'video') {
       // If we are going to load an image, wait for the transition to end
@@ -25,7 +23,7 @@ var player = (function() {
       queueIndex = 0;
     }
 
-    setTimeout(next, toShow.duration * 1000);
+    setTimeout(next, constants.SLIDE_TIMEOUT);
   }
 
   return {
