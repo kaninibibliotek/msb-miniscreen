@@ -11,7 +11,7 @@ request.onreadystatechange = function() {
   }
 
   if (request.readyState === 4 && request.status == 200) {
-    onReceivedPlaylist(JSON.parse(request.response));
+    onReceivedPlaylist(JSON.parse(request.response).results);
   }
 };
 
