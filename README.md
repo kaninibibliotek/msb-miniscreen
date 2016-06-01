@@ -1,18 +1,12 @@
 # msb-miniscreen
 Player for MSB mini screens
 
-### Setup
-```sh
-$ npm install
-```
-
 ### Development
+Start msb-chamberlain server
 ```sh
-$ npm start
 $ open http://localhost:3000
 ```
 
-### Deploy
-```sh
-$ npm run deploy
-```
+### Animation testing
+Click the "Animation Test"-button in the top left corner.
+Enter your desired css class name in the input field and click "Apply".
