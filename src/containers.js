@@ -61,7 +61,7 @@ var containers = (function() {
         case 'krumelur':
           switchNextImage();
 
-          nextImage.load(mediaObject.url, mediaObject.animation);
+          nextImage.load(mediaObject.url, mediaObject.behavior);
 
           break;
       }
