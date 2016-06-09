@@ -1,4 +1,4 @@
 var constants = {
   URL: '/api/miniscreen/',
-  SLIDE_TIMEOUT: 2000
+  IMAGE_TIMEOUT: 5000
 };

@@ -29,6 +29,8 @@ VideoContainer.prototype.show = function() {
   // and throw an exception due to a bug in chromium.
   // See https://bugs.chromium.org/p/chromium/issues/detail?id=593273
   this.video.play();
+
+  return this.video.duration * 1000;
 };
 
 VideoContainer.prototype.hide = function() {

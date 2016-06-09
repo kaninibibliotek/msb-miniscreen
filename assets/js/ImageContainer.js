@@ -16,6 +16,8 @@ ImageContainer.prototype.show = function() {
   if (this.behavior) {
     utils.addClass(this.image, this.behavior);
   }
+
+  return constants.IMAGE_TIMEOUT;
 };
 
 ImageContainer.prototype.hide = function() {

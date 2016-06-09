@@ -39,14 +39,17 @@ var containers = (function() {
   return {
     show: function(mediaObject) {
       var next = mediaObject.type === 'video' ? nextVideo : nextImage;
+      var duration = 0;
 
       for (var i = 0; i < mediaContainers.length; i++) {
         if (mediaContainers[i] === next) {
-          mediaContainers[i].show();
+          duration = mediaContainers[i].show();
         } else {
           mediaContainers[i].hide();
         }
       }
+
+      return duration;
     },
 
     load: function(mediaObject) {
