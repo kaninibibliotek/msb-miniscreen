@@ -15,4 +15,4 @@ request.onreadystatechange = function() {
   }
 };
 
-request.open('GET', constants.URL + 'blixt');
+request.open('GET', constants.URL + screenId);
