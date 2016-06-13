@@ -1,9 +1,17 @@
+var request = new XMLHttpRequest();
+
+function requestContent() {
+  request.open('GET', constants.URL + screenId);
+}
+
 function onReceivedPlaylist(playlist) {
   console.log("received", playlist);
   player.setPlaylist(playlist);
-}
 
-var request = new XMLHttpRequest();
+  if (!player.isPlaying) {
+    player.start();
+  }
+}
 
 request.onreadystatechange = function() {
   if (request.readyState === 1) {
@@ -15,4 +23,6 @@ request.onreadystatechange = function() {
   }
 };
 
-request.open('GET', constants.URL + screenId);
+requestContent();
+
+setInterval(requestContent, constants.POLL_INTERVAL);

@@ -1,6 +1,7 @@
 var player = (function() {
   var queue      = [];
   var queueIndex = 0;
+  var isPlaying = false;
 
   function next() {
     var nextIndex = (queueIndex + 1) % queue.length;
@@ -29,12 +30,20 @@ var player = (function() {
   return {
     setPlaylist: function(playlist) {
       queue = playlist;
+    },
 
+    start: function() {
       utils.shuffle(queue);
 
       containers.load(queue[0]);
 
       next();
+
+      isPlaying = true;
+    },
+
+    get isPlaying() {
+      return isPlaying;
     }
   };
 })();
