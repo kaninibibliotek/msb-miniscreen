@@ -1,41 +1,45 @@
 var player = (function() {
-  var queue      = [];
-  var queueIndex = 0;
+  var playlist = [];
+  var playlistIndex = 0;
+  var queue = [];
   var isPlaying = false;
 
   function next() {
-    var nextIndex = (queueIndex + 1) % queue.length;
+    var nextIndex = (playlistIndex + 1) % playlist.length;
 
-    var duration = containers.show(queue[queueIndex]);
+    var duration = containers.show(playlist[playlistIndex]);
 
-    if (queue[nextIndex].type !== 'video') {
+    if (playlist[nextIndex].type !== 'video') {
       // If we are going to load an image, wait for the transition to end
       // so it doesn't change during the transition.
       setTimeout(function() {
-        containers.load(queue[nextIndex]);
+        containers.load(playlist[nextIndex]);
       }, 1000);
     } else {
-      containers.load(queue[nextIndex]);
+      containers.load(playlist[nextIndex]);
     }
 
-    if (++queueIndex >= queue.length) {
-      utils.shuffle(queue);
+    if (++playlistIndex >= playlist.length) {
+      console.log("resetting");
+      playlist = queue;
 
-      queueIndex = 0;
+      queue = [];
+
+      playlistIndex = 0;
     }
 
     setTimeout(next, duration);
   }
 
   return {
-    setPlaylist: function(playlist) {
-      queue = playlist;
+    setPlaylist: function(newPlaylist) {
+      queue = newPlaylist;
     },
 
     start: function() {
-      utils.shuffle(queue);
+      playlist = queue;
 
-      containers.load(queue[0]);
+      containers.load(playlist[0]);
 
       next();
 
