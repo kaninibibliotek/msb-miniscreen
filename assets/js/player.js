@@ -2,21 +2,26 @@ var player = (function() {
   var playlist = [];
   var playlistIndex = 0;
   var queue = [];
-  var isPlaying = false;
+  var run = false;
 
   function next() {
+    if (!run) {
+      return;
+    }
+
     var nextIndex = (playlistIndex + 1) % playlist.length;
+    var nextItem  = playlist[nextIndex];
 
     var duration = containers.show(playlist[playlistIndex]);
 
-    if (playlist[nextIndex].type !== 'video') {
+    if (nextItem.type !== 'video') {
       // If we are going to load an image, wait for the transition to end
       // so it doesn't change during the transition.
       setTimeout(function() {
-        containers.load(playlist[nextIndex]);
+        containers.load(nextItem);
       }, 1000);
     } else {
-      containers.load(playlist[nextIndex]);
+      containers.load(nextItem);
     }
 
     if (++playlistIndex >= playlist.length) {
@@ -36,17 +41,25 @@ var player = (function() {
     },
 
     start: function() {
+      if (run) {
+        return;
+      }
+
       playlist = queue;
 
       containers.load(playlist[0]);
 
-      next();
+      run = true;
 
-      isPlaying = true;
+      next();
+    },
+
+    stop: function() {
+      run = false;
     },
 
     get isPlaying() {
-      return isPlaying;
+      return run;
     }
   };
 })();
