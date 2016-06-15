@@ -6,6 +6,8 @@ function requestContent() {
 
 function onError(status) {
   error.showMessage(constants.ERROR_SERVER + status);
+
+  player.stop();
 }
 
 function onReceivedPlaylist(playlist) {
