@@ -3,6 +3,6 @@ var constants = {
   IMAGE_TIMEOUT: 5000,
   POLL_INTERVAL: 10000,
 
-  ERROR_EMPTY: 'Miniskärmen ' + screenId + ' har inget innehåll. Lägg till bilder och filmer i ' + screenId + '-mappen för att visa dem här.',
-  ERROR_SERVER: 'Servervajsing, status: '
+  ERROR_EMPTY: 'Jag är miniskärm \"' + screenId + '\". Just nu har jag inget att visa. Lägg bilder, filmer och krumelurer i mappen /miniskärmar/' + screenId + '!',
+  ERROR_SERVER: 'Kunde inte hämta innehåll för miniskärm \"' + screenId + '\". Status: '
 };
