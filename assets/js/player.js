@@ -27,8 +27,6 @@ var player = (function() {
     if (++playlistIndex >= playlist.length) {
       playlist = queue;
 
-      queue = [];
-
       playlistIndex = 0;
     }
 
