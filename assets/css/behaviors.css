@@ -46,7 +46,7 @@
   100% { transform: translate(-50%,-50%) rotate(0deg); }
 }
 
-/* Peeking! */
+/* Hiding! */
 .hiding {
   animation: hiding 10s infinite ease-out;
   -webkit-animation: hiding 10s infinite ease-in-out;
@@ -103,18 +103,24 @@
 }
 @keyframes wiggle02 {
   0%   { transform: translate(-50%,-50%) rotate(0deg); }
-  5%   { transform: translate(-50%,-55%) rotate(5deg); }
-  10%  { transform: translate(-50%,-58%) rotate(8deg); }
-  90%  { transform: translate(-50%,-55%) rotate(-5deg); }
-  95%  { transform: translate(-50%,-58%) rotate(-8deg); }
+  5%   { transform: translate(-50%,-50%) rotate(-2deg); }
+  10%  { transform: translate(-50%,-50%) rotate(1deg); }
+  15%  { transform: translate(-45%,-50%) rotate(-3deg); }
+  25%  { transform: translate(-45%,-50%) rotate(-3deg); }
+  40%  { transform: translate(-55%,-50%) rotate(-3deg); }
+  70%  { transform: translate(-55%,-50%) rotate(0deg); }
+  95%  { transform: translate(-50%,-50%) rotate(1deg); }
   100% { transform: translate(-50%,-50%) rotate(0deg); }
 }
 @-webkit-keyframes wiggle02 {
   0%   { transform: translate(-50%,-50%) rotate(0deg); }
-  5%   { transform: translate(-50%,-55%) rotate(5deg); }
-  10%  { transform: translate(-50%,-58%) rotate(8deg); }
-  90%  { transform: translate(-50%,-55%) rotate(-5deg); }
-  95%  { transform: translate(-50%,-58%) rotate(-8deg); }
+  5%   { transform: translate(-50%,-50%) rotate(-2deg); }
+  10%  { transform: translate(-50%,-50%) rotate(1deg); }
+  15%  { transform: translate(-45%,-50%) rotate(-3deg); }
+  25%  { transform: translate(-45%,-50%) rotate(-3deg); }
+  40%  { transform: translate(-55%,-50%) rotate(-3deg); }
+  70%  { transform: translate(-55%,-50%) rotate(0deg); }
+  95%  { transform: translate(-50%,-50%) rotate(1deg); }
   100% { transform: translate(-50%,-50%) rotate(0deg); }
 }
 
