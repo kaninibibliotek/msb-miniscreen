@@ -1,47 +1,153 @@
-
-
 /* Jump up and down! */
 .jump {
-    animation: jump 4s 1;
-    -webkit-animation: jump 4s 1;
+  animation: jump 5s infinite;
+  -webkit-animation: jump 5s infinite;
 }
 @keyframes jump {
-    0%   { transform: translateY(0px);    }
-    75%  { transform: translateY(-100px); }
-    100% { transform: translateY(0px);    }
+  0%   { transform: translate(-50%,-50%); }
+  75%  { transform: translate(-50%,-70%); }
+  100% { transform: translate(-50%,-50%); }
 }
 @-webkit-keyframes jump {
-    0%   { -webkit-transform: translateY(0px);    }
-    75%  { -webkit-transform: translateY(-100px); }
-    100% { -webkit-transform: translateY(0px);    }
+  0%   { -webkit-transform: translate(-50%,-50%); }
+  75%  { -webkit-transform: translateY(-50%,-70%); }
+  100% { -webkit-transform: translateY(-50%,-50%); }
+}
+
+/* Happy jump! */
+.happyjump {
+  animation: happyjump 5s infinite ease-out;
+  -webkit-animation: happyjump 5s infinite ease-in-out;
+}
+@keyframes happyjump {
+  0%   { transform: translate(-50%,-50%) rotate(0deg); }
+  20%  { transform: translate(-50%,-80%) rotate(0deg); }
+  22%  { transform: translate(-50%,-80%) otate(1deg);}
+  24%  { transform: translate(-50%,-80%) rotate(-1deg); }
+  26%  { transform: translate(-50%,-80%) rotate(2deg); }
+  28%  { transform: translate(-50%,-80%) rotate(-2deg); }
+  30%  { transform: translate(-50%,-80%) rotate(2.5deg); }
+  32%  { transform: translate(-50%,-80%) rotate(-2.5deg); }
+  34%  { transform: translate(-50%,-80%) rotate(0deg); }
+  48%  { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(0deg); }
+}
+@-webkit-keyframes happyjump {
+  0%   { transform: translate(-50%,-50%) rotate(0deg); }
+  20%  { transform: translate(-50%,-80%) rotate(0deg); }
+  22%  { transform: translate(-50%,-80%) otate(1deg);}
+  24%  { transform: translate(-50%,-80%) rotate(-1deg); }
+  26%  { transform: translate(-50%,-80%) rotate(2deg); }
+  28%  { transform: translate(-50%,-80%) rotate(-2deg); }
+  30%  { transform: translate(-50%,-80%) rotate(2.5deg); }
+  32%  { transform: translate(-50%,-80%) rotate(-2.5deg); }
+  34%  { transform: translate(-50%,-80%) rotate(0deg); }
+  48%  { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(0deg); }
+}
+
+/* Peeking! */
+.hiding {
+  animation: hiding 10s infinite ease-out;
+  -webkit-animation: hiding 10s infinite ease-in-out;
+}
+@keyframes hiding {
+  0%   { transform: translate(-300%,-50%); }
+  40%  { transform: translate(-50%,-50%); }
+  60%  { transform: translate(-50%,-50%); }
+  63%  { transform: translate(-50%,-50%) rotate(5deg); }
+  65%  { transform: translate(-50%,-50%) rotate(3deg); }
+  67%  { transform: translate(-50%,-50%) rotate(3deg); }
+  100%  { transform: translate(300%,-50%); }
+}
+
+@-webkit-keyframes hiding {
+  0%   { transform: translate(-300%,-50%); }
+  40%  { transform: translate(-50%,-50%); }
+  60%  { transform: translate(-50%,-50%); }
+  63%  { transform: translate(-50%,-50%) rotate(5deg); }
+  65%  { transform: translate(-50%,-50%) rotate(3deg); }
+  67%  { transform: translate(-50%,-50%) rotate(3deg); }
+  100%  { transform: translate(300%,-50%); }
+}
+
+/* Wigle wigle! */
+.wiggle01 {
+  animation: wiggle01 5s infinite ease-in-out;
+  -webkit-animation: wiggle01 5s infinite ease-in-out;
+}
+@keyframes wiggle01 {
+  0%   { transform: translate(-50%,-50%) rotate(0deg); }
+  10%  { transform: translate(-50%,-50%) rotate(5deg); }
+  20%  { transform: translate(-50%,-50%) rotate(15deg); }
+  30%  { transform: translate(-50%,-50%) rotate(0deg); }
+  40%  { transform: translate(-50%,-50%) rotate(-5deg); }
+  50%  { transform: translate(-50%,-50%) rotate(-15deg); }
+  60%  { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(0deg); }
+}
+@-webkit-keyframes wiggle01 {
+  0%   { transform: translate(-50%,-50%) rotate(0deg); }
+  10%  { transform: translate(-50%,-50%) rotate(5deg); }
+  20%  { transform: translate(-50%,-50%) rotate(15deg); }
+  30%  { transform: translate(-50%,-50%) rotate(0deg); }
+  40%  { transform: translate(-50%,-50%) rotate(-5deg); }
+  50%  { transform: translate(-50%,-50%) rotate(-15deg); }
+  60%  { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(0deg); }
+}
+
+.wiggle02 {
+  animation: wiggle02 5s infinite ease-in-out;
+  -webkit-animation: wiggle02 5s infinite ease-in-out;
+}
+@keyframes wiggle02 {
+  0%   { transform: translate(-50%,-50%) rotate(0deg); }
+  5%   { transform: translate(-50%,-55%) rotate(5deg); }
+  10%  { transform: translate(-50%,-58%) rotate(8deg); }
+  90%  { transform: translate(-50%,-55%) rotate(-5deg); }
+  95%  { transform: translate(-50%,-58%) rotate(-8deg); }
+  100% { transform: translate(-50%,-50%) rotate(0deg); }
+}
+@-webkit-keyframes wiggle02 {
+  0%   { transform: translate(-50%,-50%) rotate(0deg); }
+  5%   { transform: translate(-50%,-55%) rotate(5deg); }
+  10%  { transform: translate(-50%,-58%) rotate(8deg); }
+  90%  { transform: translate(-50%,-55%) rotate(-5deg); }
+  95%  { transform: translate(-50%,-58%) rotate(-8deg); }
+  100% { transform: translate(-50%,-50%) rotate(0deg); }
 }
 
 /* Spin like crazy! */
 .spin {
-    animation: spin 3s 1;
-    -webkit-animation: spin 3s 1;
+  animation: spin 5s infinite ease-out;
+  -webkit-animation: spin 5s infinite ease-out;
 }
 @keyframes spin {
-    0%   { transform: rotate(0deg);   }
-    100% { transform: rotate(360deg); }
+  0%   { transform: translate(-50%,-50%) rotate(0deg); }
+  70%  { transform: translate(-50%,-50%) rotate(360deg); }
+  100% { transform: translate(-50%,-50%) rotate(360deg); }
 }
 @-webkit-keyframes spin {
-    0%   { -webkit-transform: rotate(0deg);   }
-    100% { -webkit-transform: rotate(360deg); }
+  0%   { transform: translate(-50%,-50%) rotate(0deg); }
+  70%  { transform: translate(-50%,-50%) rotate(360deg); }
+  100% { transform: translate(-50%,-50%) rotate(360deg); }
 }
 
 /* Work it! */
 .squeeze {
-    animation: squeeze 4s 1;
-    -webkit-animation: squeeze 4s 1;
+  animation: squeeze 5s infinite ease-out;
+  -webkit-animation: squeeze 5s infinite ease-out;
 }
 @keyframes squeeze {
-    0%   { transform: scaleX(1.0) scaleY(1.0); }
-    50%  { transform: scaleX(0.3) scaleY(0.8); }
-    100% { transform: scaleX(1.0) scaleY(1.0); }
+  0%   { transform: translate(-50%,-50%) scale(1.0,1.0); }
+  50%  { transform: translate(-50%,-50%) scale(0.8,0.8); }
+  90% { transform: translate(-50%,-50%) scale(1.0,1.0); }
+  100% { transform: translate(-50%,-50%) scale(1.0,1.0); }
 }
 @-webkit-keyframes squeeze {
-    0%   { -webkit-transform: scaleX(1.0) scaleY(1.0); }
-    50%  { -webkit-transform: scaleX(0.3) scaleY(0.8); }
-    100% { -webkit-transform: scaleX(1.0) scaleY(1.0); }
+  0%   { transform: translate(-50%,-50%) scale(1.0,1.0); }
+  50%  { transform: translate(-50%,-50%) scale(0.8,0.8); }
+  90% { transform: translate(-50%,-50%) scale(1.0,1.0); }
+  100% { transform: translate(-50%,-50%) scale(1.0,1.0); }
 }

@@ -16,10 +16,13 @@ body {
 }
 
 .video, .image {
-    width: 100%;
-    height: 100%;
+    height: 60%; /*only for krumelurs! otherwise 100%*/
     display: block;
-    margin: auto;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .hidden {
