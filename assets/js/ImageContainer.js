@@ -18,8 +18,8 @@ ImageContainer.prototype.show = function() {
   utils.removeClass(this.container, 'hidden');
 
   if (this.isKrumelur()) {
-    utils.addClass(this.image, this.behavior);
     utils.addClass(this.image, 'krumelur');
+    utils.addClass(this.image, this.behavior);
   }
 
   return constants.IMAGE_TIMEOUT;
@@ -29,7 +29,7 @@ ImageContainer.prototype.hide = function() {
   utils.addClass(this.container, 'hidden');
 
   if (this.isKrumelur()) {
-    utils.removeClass(this.image, this.behavior);
     utils.removeClass(this.image, 'krumelur');
+    utils.removeClass(this.image, this.behavior);
   }
 };
