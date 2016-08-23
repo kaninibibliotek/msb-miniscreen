@@ -11,7 +11,7 @@ function onError(status) {
 }
 
 function onReceivedPlaylist(playlist) {
-  console.log("received", playlist);
+  //console.log("received", playlist);
 
   if (playlist.length === 0) {
     console.log("Empty playlist");

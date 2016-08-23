@@ -29,7 +29,14 @@ ImageContainer.prototype.hide = function() {
   utils.addClass(this.container, 'hidden');
 
   if (this.isKrumelur()) {
-    utils.removeClass(this.image, 'krumelur');
-    utils.removeClass(this.image, this.behavior);
+    var self = this;
+    setTimeout(
+      function uglyHackToFixAnimationIssue() {
+        console.log('remove krumelur');
+        utils.removeClass(self.image, 'krumelur');
+        utils.removeClass(self.image, self.behavior);
+      }, 1000
+    );
+
   }
 };
