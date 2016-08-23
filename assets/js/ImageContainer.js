@@ -32,7 +32,6 @@ ImageContainer.prototype.hide = function() {
     var self = this;
     setTimeout(
       function uglyHackToFixAnimationIssue() {
-        console.log('remove krumelur');
         utils.removeClass(self.image, 'krumelur');
         utils.removeClass(self.image, self.behavior);
       }, 1000
