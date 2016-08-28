@@ -32,7 +32,6 @@ ImageContainer.prototype.hide = function() {
   if (this.isKrumelur()) {
     var self = this;
     var behaviorName = behaviorKeyToName(self.behavior);
-    console.log('bname', behaviorName);
 
     setTimeout(
       function uglyHackToFixAnimationIssue() {
