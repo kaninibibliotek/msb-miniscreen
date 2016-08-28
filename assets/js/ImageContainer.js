@@ -18,8 +18,9 @@ ImageContainer.prototype.show = function() {
   utils.removeClass(this.container, 'hidden');
 
   if (this.isKrumelur()) {
+    var behaviorName = behaviorKeyToName(this.behavior);
     utils.addClass(this.image, 'krumelur');
-    utils.addClass(this.image, this.behavior);
+    utils.addClass(this.image, behaviorName);
   }
 
   return constants.IMAGE_TIMEOUT;
@@ -30,12 +31,37 @@ ImageContainer.prototype.hide = function() {
 
   if (this.isKrumelur()) {
     var self = this;
+    var behaviorName = behaviorKeyToName(self.behavior);
+    console.log('bname', behaviorName);
+
     setTimeout(
       function uglyHackToFixAnimationIssue() {
         utils.removeClass(self.image, 'krumelur');
-        utils.removeClass(self.image, self.behavior);
+        utils.removeClass(self.image, behaviorName);
       }, 1000
     );
 
   }
 };
+
+
+// Map krumelur behavior from json to css class
+function behaviorKeyToName(strKey) {
+  const key = parseInt(strKey);
+  
+  if (key < 5) {
+    return 'spin';
+  } else if (key < 20) {
+    return 'jump';
+  } else if (key < 40) {
+    return 'happyjump';
+  } else if (key < 60) {
+    return 'hiding';
+  } else if (key < 80) {
+    return 'wiggle01';
+  } else if (key < 100) {
+    return 'squeeze';
+  } else {
+    return DEFAULT_KRUMELUR_BEHAVIOR; 
+  }
+}
