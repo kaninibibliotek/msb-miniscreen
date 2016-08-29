@@ -1,7 +1,18 @@
 # msb-miniscreen
 Player for MSB mini screens
 
-### Development
+
+## Running
+
+### Query String Options
+
+Use these to override some of the default values:
+
+| Key                      | What         
+| :----------------------- | :-------------------------------------------------------- |
+| `imageDelay`             | Ms between image and krumelur transitions                 |
+
+## Development
 Start msb-chamberlain server, then:
 ```sh
 $ open http://localhost:3000/miniscreen/app/[id]

@@ -4,6 +4,11 @@ var utils = (function() {
   }
 
   return {
+    getQueryValue: function(name) {
+      var match = (new RegExp('[?&;]' + name + '=([^&;#]*)')).exec(document.URL);
+      return match ? decodeURI(match[1]) : null;
+    },
+
     shuffle: function(array) {
       for (var i = array.length; i > 0; i--) {
         var randIdx = Math.floor(Math.random() * i);

@@ -1,6 +1,7 @@
 function ImageContainer(containerElem, imageElem) {
   this.container = containerElem;
-  this.image     = imageElem;
+  this.image = imageElem;
+  this.delay = utils.getQueryValue('imageDelay') || constants.IMAGE_DELAY;
 }
 
 ImageContainer.prototype.isKrumelur = function() {
@@ -23,7 +24,7 @@ ImageContainer.prototype.show = function() {
     utils.addClass(this.image, behaviorName);
   }
 
-  return constants.IMAGE_TIMEOUT;
+  return this.delay;
 };
 
 ImageContainer.prototype.hide = function() {

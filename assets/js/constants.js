@@ -1,6 +1,7 @@
 var constants = {
   URL: '/api/miniscreen/',
-  IMAGE_TIMEOUT: 10000,
+
+  IMAGE_DELAY: 20000,
   POLL_INTERVAL: 10000,
 
   DEFAULT_KRUMELUR_BEHAVIOR: 'jump',
