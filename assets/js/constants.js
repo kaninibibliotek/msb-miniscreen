@@ -1,8 +1,11 @@
 var constants = {
   URL: '/api/miniscreen/',
 
-  IMAGE_DELAY: 20000,
-  POLL_INTERVAL: 10000,
+  IMAGE_DELAY: 20 * 1000,
+
+  DEFAULT_VIDEO_DURATION: 10 * 1000,
+
+  POLL_INTERVAL: 10 * 1000,
 
   DEFAULT_KRUMELUR_BEHAVIOR: 'jump',
 

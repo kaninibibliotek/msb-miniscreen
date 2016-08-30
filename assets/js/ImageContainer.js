@@ -9,7 +9,7 @@ ImageContainer.prototype.isKrumelur = function() {
 }
 
 ImageContainer.prototype.load = function(source, behavior) {
-  console.log("loading", source);
+  console.log("Loading", source);
 
   this.image.src = source;
   this.behavior  = behavior;

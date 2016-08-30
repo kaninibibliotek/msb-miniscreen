@@ -4,7 +4,7 @@ function VideoContainer(containerElem, videoElem) {
 }
 
 VideoContainer.prototype.load = function(source) {;
-  console.log("loading", source);
+  console.log("Loading", source);
 
   var ext = source.substring(source.lastIndexOf('.'));
 
@@ -32,7 +32,8 @@ VideoContainer.prototype.show = function() {
   // See https://bugs.chromium.org/p/chromium/issues/detail?id=593273
   this.video.play();
 
-  return this.video.duration * 1000;
+  // Duration is NaN before video is loaded
+  return (this.video.duration * 1000) || constants.DEFAULT_VIDEO_DURATION;
 };
 
 VideoContainer.prototype.hide = function() {
