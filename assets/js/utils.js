@@ -5,8 +5,15 @@ var utils = (function() {
 
   return {
     getQueryValue: function(name) {
-      var match = (new RegExp('[?&;]' + name + '=([^&;#]*)')).exec(document.URL);
-      return match ? decodeURI(match[1]) : null;
+      var matches = (new RegExp('[?&;]' + name + '=*([^&;#]*)')).exec(document.URL);
+
+      if (matches) {
+        var match = decodeURI(matches[1]);
+        // '?foo' return true, "?foo=bar' returns 'bar'
+        return match === '' ? true : match; 
+      } else {
+        return null; 
+      }
     },
 
     shuffle: function(array) {
